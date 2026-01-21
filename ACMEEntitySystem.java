@@ -105,7 +105,7 @@ public class ACMEEntitySystem {
 
     public static void main(String[] args) {
     for(int p = 0; p < 5; p++){
-        ACMEPlayer p = new ACMEPlayer("player" + p, 100 + p, p, )
+        ACMEPlayer p = new ACMEPlayer("player" + p, 100 + p, p, );
     }
     }
 }

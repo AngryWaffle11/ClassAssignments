@@ -585,8 +585,8 @@ public class ACMEEntitySystem {
                 sc.next();
             }
         }
-    for(int p = 0; p < 5; p++){
-        ACMEPlayer p = new ACMEPlayer("player" + p, 100 + p, p, );
-    }
+ //   for(int p = 0; p < 5; p++){
+    //    ACMEPlayer p = new ACMEPlayer("player" + p, (100 + p), p, classes[1];
+ //   }
     }
 }

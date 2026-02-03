@@ -30,5 +30,8 @@ public class CircumferenceOfACircle {
         // Print result
         System.out.println("Area:          " + area);
         System.out.println("Circumference: " + circumference);
+
+        // Close the scanner for best practice
+        sc.close();
     }
 }

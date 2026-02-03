@@ -39,10 +39,14 @@ public class Puddy_Tat_Receipt {
         double subtotal = (lunches * 5.99) + (dinners * 9.99);
 
         // Set tax rate
-        double tax = 6.5;
+        double tax = 1.065;
 
         // Calculate total and round to cents
-        double total = Math.round((subtotal += tax/subtotal)*100)/100;
+        double total = Math.round((subtotal * tax)*100);
+        total = total/100;
+
+        // Tell client the total
+        p(total + " is your total!");
 
         // Self checkout
         p("Time to pay!!");
@@ -63,7 +67,22 @@ public class Puddy_Tat_Receipt {
             } else if (change >= 0.10){
                 change -= 0.10;
                 dimes += 1;
+            } else if (change >= 0.05){
+                change -= 0.05;
+                nickels += 1;
+            } else if (change >= 0.01){
+                change -= 0.01;
+                pennies += 1;
+            } else {
+                break;
             }
         }
+
+        p("Give customer");
+        p(dollars + " dollars");
+        p(quarters + " quarters");
+        p(dimes + " dimes");
+        p(nickels + " nickels");
+        p(pennies + " pennies");
     }
 }

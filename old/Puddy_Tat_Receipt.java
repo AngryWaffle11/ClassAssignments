@@ -53,8 +53,15 @@ public class Puddy_Tat_Receipt {
         p("Time to pay!!");
         double recieved = askInt();
 
+        double realTax = (subtotal * tax - subtotal) * 100;
+        realTax = Math.round(realTax);
+        realTax = realTax/100;
+
         // Calculate the change
         double change = recieved - total;
+        double realChange = change * 100;
+        realChange = Math.round(realChange);
+        realChange = realChange/100;
 
         // Logic to find the amount of change needed
         int dollars=0, quarters=0, dimes=0, nickels=0, pennies=0;
@@ -85,5 +92,24 @@ public class Puddy_Tat_Receipt {
         p(dimes + " dimes");
         p(nickels + " nickels");
         p(pennies + " pennies");
+
+        p("Printing receipt...");
+        p("Beep Boop Bop!");
+
+        p("_______________________");
+        p("|Thank you for dining |");
+        p("| at Chez Vous!       |");
+        p("|                     |");
+        p("|Lunches:   " + lunches + "         |");
+        p("|Dinners:   " + dinners + "         |");
+        p("|                     |");
+        p("|Subtotal:  $" + subtotal + "    |");
+        p("|Tax:       $" + realTax + "     |");
+        p("|Total:     $" + total + "    |");
+        p("|Change:    $" + realChange + "     |");
+        p("|                     |");
+        p("| Thank you and come  |");
+        p("| again!              |");
+        p("|_____________________|");
     }
 }

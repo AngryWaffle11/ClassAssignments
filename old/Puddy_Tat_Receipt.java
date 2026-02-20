@@ -1,10 +1,12 @@
 package old;
+import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
 
 public class Puddy_Tat_Receipt {
     // Initialize the scanner
     static Scanner sc = new Scanner(System.in);
+    public static Random rd = new Random();
 
     // Ask for an integer value and handle wrong answers
     static int askInt(){
@@ -38,12 +40,34 @@ public class Puddy_Tat_Receipt {
 
         // Calculate subtotal
         double subtotal = (lunches * 5.99) + (dinners * 9.99);
+        // Round subtotal to cents
+        subtotal = Math.round(subtotal * 100);
+        subtotal = subtotal/100;
 
         // Set tax rate
         double tax = 1.065;
 
         // Calculate total and round to cents
-        double total = Math.round((subtotal * tax)*100);
+        double total = subtotal * tax;        
+
+        // determine if user deserves a discount
+        if(lunches + dinners >= 15){
+            p("Ordering for a party tonight? I'll give you a 20% discount and enter you in our super raffe!!!");
+            total = total * 0.8;
+
+            // 1/4 chance to win a free meal
+            p("Beep Boop Bop! Entering you in the raffle...");
+            if (1 == rd.nextInt(4)){
+                p("Congratulations! You won the raffle and get a free meal with your order!!");
+            } else {
+                p("Sorry you didn\'t win the raffle, but you still get a 20% discount!!");
+            }
+        } else if (lunches + dinners >= 10){
+            p("Wow you\'re a big spender! You get a 10% discount!");
+            total = total * 0.9;
+        }
+
+        total = Math.round(total * 100);
         total = total/100;
 
         // Tell client the total
@@ -97,19 +121,19 @@ public class Puddy_Tat_Receipt {
         p("Beep Boop Bop!");
 
         p("_______________________");
-        p("|Thank you for dining |");
-        p("| at Chez Vous!       |");
-        p("|                     |");
-        p("|Lunches:   " + lunches + "         |");
-        p("|Dinners:   " + dinners + "         |");
-        p("|                     |");
-        p("|Subtotal:  $" + subtotal + "    |");
-        p("|Tax:       $" + realTax + "     |");
-        p("|Total:     $" + total + "    |");
-        p("|Change:    $" + realChange + "     |");
-        p("|                     |");
-        p("| Thank you and come  |");
-        p("| again!              |");
-        p("|_____________________|");
+        p(" Thank you for dining ");
+        p("  at Chez Vous!       ");
+        p("                     ");
+        p(" Lunches:   " + lunches + "         ");
+        p(" Dinners:   " + dinners + "         ");
+        p("                      ");
+        p(" Subtotal:  $" + subtotal + "    ");
+        p(" Tax:       $" + realTax + "     ");
+        p(" Total:     $" + total + "    ");
+        p(" Change:    $" + realChange + "     ");
+        p("                      ");
+        p("  Thank you and come  ");
+        p("  again!              ");
+        p(" _____________________");
     }
 }

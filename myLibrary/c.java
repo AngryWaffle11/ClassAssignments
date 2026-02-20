@@ -2,7 +2,7 @@ package myLibrary;
 import java.util.Random;
 import java.util.Scanner;
 
-public class commands{
+public class c{
     // Initialize the scanner
     public static Scanner sc = new Scanner(System.in);
     // Random generator

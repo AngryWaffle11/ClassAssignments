@@ -20,6 +20,11 @@ public class c{
         return input;
     }
 
+    public static void newDialogue(){
+        sc.nextLine(); // Add user input to move on to make it annoying and fun
+        clearTerminal(); // scrub terminal so that it doesn't
+    }
+
     // Scrub terminal for new lines of text
     public static void clearTerminal(){
         try { // windows command for moving the cursor to the start of the terminal and clearing the rest of the text

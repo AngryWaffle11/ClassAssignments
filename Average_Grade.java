@@ -9,6 +9,7 @@ public class Average_Grade {
 
     public static void main(String[] args){
         // Initiate main dialogue
+        newDialogue();
         c.p("Welcome to the average grade calculator!!!");
         c.p("Press enter to continue my dialouge");
         newDialogue();
@@ -22,7 +23,7 @@ public class Average_Grade {
             c.p("How many grades do you want to average?");
             numGrades = c.askInt(); // ask for number of grades to average
             if (numGrades < 5){
-                c.p("Yeah, I have bad news... I don't think I can average less than 5 grades... It\'s kindof my fist day you know?");
+                c.p("Yeah, I have bad news... I don't think I can average less than 5 grades... It\'s kindof my first day you know?");
             } else {
                 break;
             }

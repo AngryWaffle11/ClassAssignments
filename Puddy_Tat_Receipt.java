@@ -1,7 +1,14 @@
-package old;
+/**
+ * Puddy Tat Receipt
+ * I added the reject large payments feature to this code.
+ * It rejects payments that are more than $20 above the total, and asks the user to give a smaller amount.
+ */
+
+
 import java.util.Random;
 import java.util.Scanner;
 import java.lang.Math;
+import myLibrary.c;
 
 public class Puddy_Tat_Receipt {
     // Initialize the scanner
@@ -73,9 +80,23 @@ public class Puddy_Tat_Receipt {
         // Tell client the total
         p(total + " is your total!");
 
-        // Self checkout
-        p("Time to pay!!");
-        double recieved = askInt();
+        double recieved;
+        while (true){
+            // Self checkout
+            p("Time to pay!!");
+            recieved = askInt();
+            
+            // try and get a smaller number if they give a large amount
+            if (recieved >= total + 20){
+                c.p("Are you sure you want to do that to me??");
+                c.p("Think of all the counting I would have to do to give you the correct change!!");
+                c.p("I\'m just a simple robot, I can\'t handle that much money!!");
+                c.p("Please give me a smaller amount that is closer to the total!!");
+                c.p("Pweeeaaassee");
+            } else {
+                break;
+            }
+        }
 
         double realTax = (subtotal * tax - subtotal) * 100;
         realTax = Math.round(realTax);
